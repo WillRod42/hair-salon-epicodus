@@ -1,15 +1,15 @@
 @{
   Layout = "_Layout";
 }
-<h3>New Client</h3>
+<h1 class="display-1 text-center">New Client</h1>
 
 @model HairSalon.Models.Stylist
 @using (Html.BeginForm())
 {
   @Html.LabelFor(model => model.Name)
-  @Html.TextBoxFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name, new { @class="form-control" })
   <input id="StylistId" name="StylistId" type="hidden" value = "@ViewBag.StylistId">
   <input type="submit" value="Add A New Client" class="btn btn-primary"/>
 }
 
-<p>@Html.ActionLink("Back", "Details", "Stylist", new { id = ViewBag.StylistId })</p>
+<p>@Html.ActionLink("Back", "Details", "Stylist", new { id = ViewBag.StylistId }, new { @class="btn btn-primary" })</p>

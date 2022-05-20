@@ -5,25 +5,25 @@
 @using HairSalon.Models
 @model HairSalon.Models.Stylist
 
-<h1>Stylist Info</h1>
+<h1 class="display-1 text-center">Stylist Info</h1>
 <hr />
-<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
-<h3>@Html.DisplayNameFor(model => model.Specialty): @Html.DisplayFor(model => model.Specialty)</h3>
+<h5>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h5>
+<h5>@Html.DisplayNameFor(model => model.Specialty): @Html.DisplayFor(model => model.Specialty)</h5>
 
-<h2>Clients</h2>
-<ul>
+<h5>Clients</h5>
+<ul class="list-group">
   @if (Model.Clients.Count == 0)
   {
-    <li>No clients added</li>
+    <li class="list-group-item">No clients added</li>
   }
   else
   {
     @foreach (Client client in Model.Clients)
     {
-      <li>@client.Name</li>
+      <li class="list-group-item">@client.Name</li>
     }
   }
 </ul>
 
-<p>@Html.ActionLink("Add A Client", "Create", "Client", new { id = Model.StylistId })</p>
-<p>@Html.ActionLink("Back", "Index")</p>
+<p>@Html.ActionLink("Add A Client", "Create", "Client", new { id = Model.StylistId }, new { @class = "btn btn-primary" })</p>
+<p>@Html.ActionLink("Back", "Index", "Stylist", null, new { @class = "btn btn-primary" })</p>
