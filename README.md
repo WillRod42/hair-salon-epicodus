@@ -39,33 +39,13 @@ git clone https://github.com/WillRod42/currency.git
 
 ### Setup MySQL Server
 * Download and install the version of [MySQL](https://dev.mysql.com/downloads/mysql/) for your OS
-* Using your terminal, login to MySQL
-  * ```
-    mysql -u<username here> -p<password here>
-    ```
-* Create a new database and tables with these commands
-  * ```
-    CREATE DATABASE <database name here>;
-
-    USE <database name here>;
-
-    CREATE TABLE `stylists` (
-    `StylistId` int NOT NULL AUTO_INCREMENT,
-    `Name` varchar(255) NOT NULL,
-    `Specialty` varchar(255) DEFAULT NULL,
-    PRIMARY KEY (`StylistId`)
-    ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-    CREATE TABLE `clients` (
-    `ClientId` int NOT NULL AUTO_INCREMENT,
-    `Name` varchar(255) NOT NULL,
-    `StylistId` int NOT NULL,
-    PRIMARY KEY (`ClientId`),
-    KEY `StylistId_idx` (`StylistId`),
-    CONSTRAINT `StylistId` FOREIGN KEY (`StylistId`) REFERENCES `stylists` (`StylistId`)
-    ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-    ```
+* Open MySQL Workbench
+* Select the `Administration` tab in the Navigator window
+* Select `Data Import/Restore`
+* In the import options select `Import From Self-Contained File`
+* Select the file named `william_rodriguez.sql` in the top level directory of the repository
+* Under `Default Schema to be Imported To`, select the `New...` button and give the database a name
+* Select the `Import Progress` tab and click the `Start Import` button
 * Inside the `HairSalon` folder, create a file named `appsettings.json`
   * Inside add these lines and save the file
   * ```
